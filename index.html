@@ -1,0 +1,1036 @@
+<HTML>
+<HEAD>
+<title>Kælan Mikla unofficial dates</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html">
+<META NAME="Keywords" CONTENT="Kælan Mikla, dates, tour">
+<META NAME ="Description" CONTENT="The dates of the performances of the music band 'Kælan Mikla' (unofficial).">
+<META NAME="Author" CONTENT="jacek Mulawka j.mulawka@interia.pl https://github.com/jacek-mulawka">
+</HEAD>
+
+<SCRIPT type='text/javascript'>
+
+function Dates_Check()
+{
+
+  function Date_To_String( date_f )
+  {
+
+    const date_l = new Date( date_f );
+
+    let day_l_l = date_l.getDate();
+    let month_l_l = date_l.getMonth() + 1;
+    let year_l_l = date_l.getFullYear();
+
+    //console.log( "Date_To_String " + day_l_l + "." + month_l_l + "." + year_l_l  ); //???
+    return day_l_l + "." + month_l_l + "." + year_l_l;
+
+  }
+
+  function String_To_Date_Ex( text_f = '' )
+  { 
+
+    if (  text_f.indexOf( '__dummy_div__' ) >= 0  )
+	  {
+		return new Date( 0 );
+   	  }		
+
+	text_f = text_f.substr(  text_f.indexOf( '>' ) + 1, 10  );	
+
+    if ( text_f.length < 10 )
+      return Date.now();
+
+    let day_l_l = text_f.substr( 0, 2 );
+    let month_l_l = text_f.substr( 3, 2 );
+    let year_l_l = text_f.substr( 6, 4 );
+
+    //console.log( "String_To_Date_Ex " + day_l_l + "." + month_l_l + "." + year_l_l  ); //???
+    return Date.parse( year_l_l + "-" + month_l_l + "-" + day_l_l );
+  }
+  
+  let archive_date_l = new Date();
+  let event_date_l = new Date();
+  let events_count_l = 0;
+  let now_date_l = new Date();  
+  now_date_l = now_date_l.setDate( now_date_l.getDate() - 1 );  
+  let year_last_l = 0;
+  let zts = '';
+
+  //???if ( document.getElementById( "Archive_CheckBox" ) == null )
+  //  return;
+
+
+  //archive_date_l.setFullYear( archive_date_l.getFullYear() - 1 );
+  archive_date_l = archive_date_l.setDate( archive_date_l.getDate() - 183 );  
+  //console.log(  Date_To_String( archive_date_l )  ); //???
+
+  const event_date_collection = document.getElementsByClassName( "Event_Date" );
+  
+
+  for( var i in event_date_collection )
+    {
+
+	  zts = event_date_collection[ i ].innerHTML;
+	  
+	  if ( zts == undefined )
+		zts = '';  
+	  
+	  
+      event_date_l = new Date(  String_To_Date_Ex( zts )  );
+
+	  //console.log( event_date_collection[ i ].innerHTML ); //???
+      //console.log(  Date_To_String( event_date_l )  ); //???
+
+      if ( event_date_l < now_date_l )
+        {
+
+          event_date_collection[ i ].style.color = "silver";
+
+          if  (
+				   (  event_date_l <= new Date( 0 )  )
+			    || (
+  				        ( event_date_l < archive_date_l )
+					 && ( document.getElementById( "Archive_CheckBox" ) != null )
+					 && (  !( document.getElementById( "Archive_CheckBox" ).checked )  )
+				   )
+			  )
+            {
+
+              event_date_collection[ i ].style.visibility = "hidden"
+              event_date_collection[ i ].style.fontSize = "0%"
+
+            }
+          else      
+            {
+
+			  if (  zts.indexOf( 'column__group_header' ) < 0  )	
+			    events_count_l++;
+			  
+			  
+              event_date_collection[ i ].style.visibility = "visible";
+              event_date_collection[ i ].style.fontSize = "100%"
+			  
+			  
+              if ( year_last_l != event_date_l.getFullYear() )
+                {
+
+                  year_last_l = event_date_l.getFullYear();
+
+                  event_date_collection[ i ].outerHTML = '<DIV class="Event_Date_Group"><BR><tabulator_01>' + year_last_l + '</DIV>' + event_date_collection[ i ].outerHTML;
+
+                }
+
+            }
+
+        }
+	  else
+		{ 
+
+	      if (  zts.indexOf( 'column__group_header' ) < 0  )
+		    events_count_l++;
+		  
+		  
+		  if ( year_last_l != event_date_l.getFullYear() )
+			{
+
+			  year_last_l = event_date_l.getFullYear();
+
+			  event_date_collection[ i ].outerHTML = '<DIV class="Event_Date_Group"><BR><tabulator_01>' + year_last_l + '</DIV>' + event_date_collection[ i ].outerHTML;
+
+			}
+
+		}
+
+    }
+	
+	
+   document.getElementById( "Event_Date__Count" ).innerHTML = 'Count: ' + events_count_l + '.';
+	  
+}
+
+</SCRIPT>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
+<script>
+$(document).ready(
+  function()
+  {
+
+    $("#Archive_CheckBox").change(
+      function()
+      {
+
+        $("DIV.Event_Date_Group").remove();
+
+        Dates_Check();
+
+      });
+
+  });
+</script>
+
+<STYLE type="text/css">
+tabulator_01
+{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.Event_Date
+{
+	display: flex;
+	flex-wrap: nowrap; 
+}
+
+.Event_Date__Header
+{
+	display: flex;
+	flex-wrap: nowrap; 
+}
+
+.column__additional_information { float: left; width: 250px; }
+.column__date { float: left; width: 200px; }
+.column__group_header { float: left; width: 100%; margin-left: 10%; }
+.column__name { float: left; width: 300px; }
+.column__map { float: left; width: 75px; }
+.column__tickets { float: left; width: 75px; }
+.column__venue { float: left; width: 200px; }
+</STYLE>
+
+<BODY LeftMargin=50 TopMargin=10 onload="Dates_Check();">
+
+<H1>KÆLAN MIKLA unofficial dates</H1>
+
+<H2><FONT color="red">This website may contain mistakes.<BR>
+Please confirm and check all information with official sources before planning your trip and / or buying tickets.</FONT></H2>
+
+Maybe the information here will be helpful to someone. Some descriptions may be not available if I was not able to find all informations.
+
+<H3>Link to the official website: <A href="https://www.kaelanmikla.com/" target="_blank">Kælan Mikla official</A>.</H3>
+
+<INPUT type="checkbox" id="Archive_CheckBox">Archive
+<BR><BR>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">08.09.2023 19:00 (12:00)</DIV>
+	<DIV class="column__venue">Aleksandrów Łódzki (PL)</DIV>
+	<DIV class="column__name"><A href="https://summerdyingloud.pl/" target="_blank">Summer Dying Loud</A></DIV>
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/51%C2%B048'29.6%22N+19%C2%B018'12.9%22E/@51.8082278,19.3029293,19z/data=!3m1!4b1!4m13!1m8!3m7!1s0x471bb4852e590f81:0x72e6355801d74929!2zOTUtMDcwIEFsZWtzYW5kcsOzdyDFgcOzZHpraQ!3b1!8m2!3d51.8194235!4d19.3038202!16zL20vMDIybXgw!3m3!8m2!3d51.808227!4d19.303573?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><A href="https://www.ebilet.pl/muzyka/festiwale/summer-dying-loud" target="_blank" target="_blank">Tickets</A></DIV>
+	<DIV class="column__additional_information">159 - 309, parking 40 PLN<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">01.09.2023</DIV>
+	<DIV class="column__venue">New York (NY)</DIV>	
+	<DIV class="column__name"><A href="https://www.redpartynyc.com/amoc" target="_blank">A Murder Of Crows Festival</A></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.eventbrite.com/e/a-murder-of-crows-festival-v-2019-tickets-60221246369?aff=ebdssbeac" target="_blank" target="_blank">Tickets</A></DIV>	
+	<DIV class="column__additional_information">35 - 85 USD<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.08.2023 22:00</DIV>
+	<DIV class="column__venue">Vevey (CH)</DIV>
+	<DIV class="column__name"><A href="https://www.noxorae.ch/	" target="_blank">Nox Orae festival</A></DIV>
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Festival+Nox+Orae/@46.4554817,6.8509727,17z/data=!3m1!4b1!4m6!3m5!1s0x478e9cc7e3ed887f:0xe264c0b89ec0ae1f!8m2!3d46.455478!4d6.8535476!16s%2Fg%2F11c6_fqk6p?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+	<DIV class="column__additional_information">49 - 140 + taxes CHF<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">04.08.2023 23:00</DIV>
+	<DIV class="column__venue">Laugarbakki (IS)</DIV>	
+    <DIV class="column__name"><A href="https://linktr.ee/nordanpaunk	" target="_blank">Norðanpaunk</A></DIV>	
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/65%C2%B019'35.6%22N+20%C2%B053'35.9%22W/@65.3265551,-20.8946025,18z/data=!3m1!4b1!4m12!1m7!3m6!1s0x48d60b2d21c3d663:0x6a770ada2781ba85!2sGaukurinn!8m2!3d64.1487171!4d-21.940199!16s%2Fg%2F11b807tgjq!3m3!8m2!3d65.326554!4d-20.893315?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><A href="https://www.nordanpaunk.org/tickets.html" target="_blank">Tickets</A></DIV>		
+	<DIV class="column__additional_information">11'900 ISK (77,70 EUR)<BR><BR></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">03.08.2023 21:00</DIV>
+	<DIV class="column__venue">Reykjavík (IS)</DIV>
+    <DIV class="column__name"><A href="https://tix.is/is/event/15794/rokkhati-a-lemmy-2023/" target="_blank">Lemmy</A></DIV>	
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Austurstr%C3%A6ti+20,+101+Reykjav%C3%ADk,+Islandia/@64.1473008,-21.9403302,17z/data=!3m1!4b1!4m6!3m5!1s0x48d60b2d437f8255:0x95a9167ffb80e9f4!8m2!3d64.1472985!4d-21.9377553!16s%2Fg%2F11b8vctffz?entry=ttu" target="_blank">Map</A></DIV>	
+	<DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">29.07.2023 [30.07] 01:15 </DIV>
+	<DIV class="column__venue">Akureyri (IS)</DIV>
+	<DIV class="column__name"><A href="https://mbsskifur.is/" target="_blank">Mannfólkið breytist í slím</A></DIV>		
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/%C3%93seyri+16,+600+Akureyri,+Islandia/@65.694584,-18.1034617,17z/data=!3m1!4b1!4m6!3m5!1s0x48d28fa41a49cced:0xb971fbed7c0cb5fb!8m2!3d65.6945818!4d-18.1008868!16s%2Fg%2F11fhr10r21?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets">No tickets</DIV>
+	<DIV class="column__additional_information">Pay what you can or want!<BR><BR></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.07.2023</DIV>
+	<DIV class="column__venue">Seyðisfjörður (IS)</DIV>
+    <DIV class="column__name"><A href="https://www.lunga.is/" target="_blank">LungA</A></DIV>
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Hafnargata+44,+710+Sey%C3%B0isfj%C3%B6r%C3%B0ur,+Islandia/@65.2645639,-13.9961534,17z/data=!3m1!4b1!4m5!3m4!1s0x48cbfefad9a44019:0x4576243ab5ff5926!8m2!3d65.2645617!4d-13.9935785?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><A href="https://tix.is/en/event/15292/lunga-bliss/" target="_blank">Tickets</A></DIV>	
+	<DIV class="column__additional_information">15'900 ISK<BR><BR></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">08.07.2023</DIV>
+	<DIV class="column__venue">Reykjavík (IS)</DIV>
+	<DIV class="column__name"><A href="https://www.kexhostel.is/gym-and-tonic" target="_blank">KEX Port</A></DIV>	
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/64%C2%B008'44.1%22N+21%C2%B055'09.2%22W/@64.1455756,-21.9198757,19z/data=!3m1!4b1!4m15!1m10!3m9!1s0x48d674ce84f58251:0x58b25b89d1a390f7!2sKex+Hostel+Reykjavik!5m2!4m1!1i2!8m2!3d64.145424!4d-21.919484!16s%2Fg%2F1tlnd0fp!3m3!8m2!3d64.145575!4d-21.919232?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><B>Free</B><BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">16.06.2023</DIV>
+	<DIV class="column__venue">Cluj-Napoca (RO)</DIV>
+    <DIV class="column__name"><A href="https://tiff.ro/" target="_blank">Transilvania International Film Festival</A></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+	<DIV class="column__additional_information">The Phantom Carriage<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.05.2023 20:40 - 21:40</DIV>
+	<DIV class="column__venue">Leipzig (DE)</DIV>
+    <DIV class="column__name"><A href="https://www.wave-gotik-treffen.de/" target="_blank">Wave Gotik Treffen</A></DIV>
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/51%C2%B021'07.8%22N+12%C2%B022'34.8%22E/@51.3521673,12.3737561,17z/data=!3m1!4b1!4m4!3m3!8m2!3d51.352164!4d12.376331?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+	<DIV class="column__additional_information">Stadtbad. 170 - 190 EUR<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">21.05.2023 22:45 (17:00)</DIV>
+	<DIV class="column__venue">Reykjavík (IS)</DIV>
+    <DIV class="column__name"><A href="https://www.ascensionfestivaliceland.com/" target="_blank">Ascension Festival Iceland</A></DIV>			
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Gaukurinn/@64.1487194,-21.9427739,17z/data=!3m1!4b1!4m6!3m5!1s0x48d60b2d21c3d663:0x6a770ada2781ba85!8m2!3d64.1487171!4d-21.940199!16s%2Fg%2F11b807tgjq?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><A href="https://www.ascensionfestivaliceland.com/tickets.html" target="_blank">Tickets</A></DIV>
+	<DIV class="column__additional_information">8'900 - 24'900 ISK (65 - 210 EUR)<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">17.04.2023</DIV>
+	<DIV class="column__venue">San Francisco (CA)</DIV>
+	<DIV class="column__name">The Fillmore</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
+</DIV>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.03.2023</DIV>
+	<DIV class="column__group_header"><B>VV / Neon Noir Tour 2023</B></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.03.2023</DIV>
+	<DIV class="column__venue">London (UK)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.03.2023</DIV>
+	<DIV class="column__venue">Manchester (UK)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">13.03.2023</DIV>
+	<DIV class="column__venue">Glasgow (UK)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">11.03.2023</DIV>
+	<DIV class="column__venue">Nottingham (UK)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">10.03.2023</DIV>
+	<DIV class="column__venue">Bristol (UK)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">09.03.2023</DIV>
+	<DIV class="column__venue">Paris (FR)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">08.03.2023</DIV>
+	<DIV class="column__venue">Cologne (DE)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">07.03.2023</DIV>
+	<DIV class="column__venue">Esch-sur-Alzette (LU)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">05.03.2023</DIV>
+	<DIV class="column__venue">Vienna (AT)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">04.03.2023</DIV>
+	<DIV class="column__venue">Budapest (HU)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">03.03.2023</DIV>
+	<DIV class="column__venue">Munich (DE)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">27.02.2023</DIV>
+	<DIV class="column__venue">Porto (PT)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.02.2023</DIV>
+	<DIV class="column__venue">Lisbon (PT)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">25.02.2023</DIV>
+	<DIV class="column__venue">Madrid (ES)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">24.02.2023</DIV>
+	<DIV class="column__venue">Barcelona (ES)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">22.02.2023</DIV>
+	<DIV class="column__venue">Zurich (CH)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">21.02.2023</DIV>
+	<DIV class="column__venue">Frankfurt (DE)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">20.02.2023</DIV>
+	<DIV class="column__venue">Amsterdam (NL)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">18.02.2023</DIV>
+	<DIV class="column__venue">Hamburg (DE)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">17.02.2023</DIV>
+	<DIV class="column__venue">Berlin (DE)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">16.02.2023</DIV>
+	<DIV class="column__venue">Prague (CZ)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.02.2023</DIV>
+	<DIV class="column__venue">Krakow (PL)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.02.2023</DIV>
+	<DIV class="column__venue">Warsaw (PL)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">11.02.2023</DIV>
+	<DIV class="column__venue">Hague (NL)</DIV>
+	<DIV class="column__name">grauzone_festival</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.01.2023</DIV>
+	<DIV class="column__venue">Helsinki (FI)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.01.2023</DIV>
+	<DIV class="column__venue">Helsinki (FI)</DIV>
+	<DIV class="column__name"><S><A>Venue?</A></S></DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">13.01.2023</DIV>
+	<DIV class="column__venue">Helsinki (FI)</DIV>
+    <DIV class="column__name"><A href="https://tavastiaklubi.fi/" target="_blank">TAVASTIA-klubi</A></DIV>	
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">30.12.2022 (20:00)</DIV>
+	<DIV class="column__venue">Reykjavík (IS)</DIV>
+    <DIV class="column__name"><A href="https://gaukurinn.is/" target="_blank">Gaukurinn</A></DIV>			
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Gaukurinn/@64.1487194,-21.9427739,17z/data=!3m1!4b1!4m6!3m5!1s0x48d60b2d21c3d663:0x6a770ada2781ba85!8m2!3d64.1487171!4d-21.940199!16s%2Fg%2F11b807tgjq?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+	<DIV class="column__additional_information">2'000 ISK<BR><BR></DIV>
+</DIV>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">05.11.2022</DIV>
+	<DIV class="column__group_header"><B>Undir Köldum Norðurljósum Tour 2022 With KANGA</B></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">05.11.2022</DIV>
+	<DIV class="column__venue">Atlanta (GA)</DIV>
+	<DIV class="column__name">529</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://529kaelanmikla.eventbrite.com/" target="_blank" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">04.11.2022</DIV>
+	<DIV class="column__venue">Tampa (FL)</DIV>
+	<DIV class="column__name">New World Brewery</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://kaelantampa.eventbrite.com/" target="_blank" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">03.11.2022</DIV>
+	<DIV class="column__venue">NewYork (NY)</DIV>
+	<DIV class="column__name">Le Poisson Rouge</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://link.dice.fm/Q71ce7c14804" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">02.11.2022</DIV>
+	<DIV class="column__venue">Baltimore (MD)</DIV>
+	<DIV class="column__name">Metro Gallery</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.etix.com/ticket/p/5131327/kaelan-miklawith-special-guests-kanga-baltimore-metro-baltimore" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">01.11.2022</DIV>
+	<DIV class="column__venue">Philadelphia (PA)</DIV>
+	<DIV class="column__name">Johnny Brenda's</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">31.10.2022</DIV>
+	<DIV class="column__venue">Boston (MA)</DIV>
+	<DIV class="column__name">The Middle East Upstairs</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">30.10.2022</DIV>
+	<DIV class="column__venue">Montreal (QC)</DIV>
+	<DIV class="column__name">Bar Ritz</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="http://blueskiesturnblack.com/show/2783" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">29.10.2022</DIV>
+	<DIV class="column__venue">Toronto (ON)</DIV>
+	<DIV class="column__name">Vashe Zdorov'ye</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://bit.ly/K%C3%A6lanTORQ" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">27.10.2022</DIV>
+	<DIV class="column__venue">Vancouver (BC)</DIV>
+	<DIV class="column__name">Rick Shaw</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://kaelan-mikla-vancouver.eventbrite.ca/" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.10.2022</DIV>
+	<DIV class="column__venue">Seattle (WA)</DIV>
+	<DIV class="column__name">Clockout Lounge</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://bit.ly/3nlzdPM" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">25.10.2022</DIV>
+	<DIV class="column__venue">Portland (OR)</DIV>
+	<DIV class="column__name">Star Theater</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.ticketweb.com/event/kaelan-mikla-x-kanga-star-theater-tickets/12260645?pl=star" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">23.10.2022</DIV>
+	<DIV class="column__venue">Sacramento (CA)</DIV>
+	<DIV class="column__name">Harlows</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.showclix.com/event/kaelan-mikla" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">22.10.2022</DIV>
+	<DIV class="column__venue">SanFransico (CA)</DIV>
+	<DIV class="column__name">Rickshaw Stop</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://wl.seetickets.us/event/KAELAN-MIKLA/491589?afflky=RickshawStop" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">21.10.2022</DIV>
+	<DIV class="column__venue">LosAngeles (CA)</DIV>
+	<DIV class="column__name">Substance Festival</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://substance2022.com/tickets" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">20.10.2022</DIV>
+	<DIV class="column__venue">SanDiego (CA)</DIV>
+	<DIV class="column__name">TBA</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">19.10.2022</DIV>
+	<DIV class="column__venue">Phoenix (AZ)</DIV>
+	<DIV class="column__name">The Scarlet Room</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.eventbrite.com/e/klan-mikla-with-kanga-tickets-375544221877?utm-campaign=social&amp;utm-content=attendeeshare&amp;utm-medium=discovery&amp;utm-term=listing&amp;utm-source=cp&amp;aff=escb" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">18.10.2022</DIV>
+	<DIV class="column__venue">ElPaso (TX)</DIV>
+	<DIV class="column__name">The Reagan</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.eventbrite.com/e/panic-presents-kaelan-mikla-kanga-tickets-375405446797" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">17.10.2022</DIV>
+	<DIV class="column__venue">SanAntonio (TX)</DIV>
+	<DIV class="column__name">Paper Tiger</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://wl.seetickets.us/event/Klan-Mikla/491833?afflky=PaperTiger" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">16.10.2022</DIV>
+	<DIV class="column__venue">Houston (TX)</DIV>
+	<DIV class="column__name">White Oak Music Hall</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://wl.seetickets.us/event/Klan-Mikla/491613?afflky=WhiteOakMusicHall" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.10.2022</DIV>
+	<DIV class="column__venue">Austin (TX)</DIV>
+	<DIV class="column__name">Elysium</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="http://www.secret-oktober.com/kaelanmikla/" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.10.2022</DIV>
+	<DIV class="column__venue">Ft.Wor (TX)</DIV>
+	<DIV class="column__name">Tulips</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.prekindle.com/event/47954-kaelan-mikla-fort-worth" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">13.10.2022</DIV>
+	<DIV class="column__venue">Wichita (KS)</DIV>
+	<DIV class="column__name">MonikaHouse</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">12.10.2022</DIV>
+	<DIV class="column__venue">KansasCity (KS)</DIV>
+	<DIV class="column__name">BLVD Nights</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.ho7s.com/products/kaelan-mikla-w-kanga" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">10.10.2022</DIV>
+	<DIV class="column__venue">Denver (CO)</DIV>
+	<DIV class="column__name">HQ</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://holdmyticket.com/tickets-preview/6b502aa6ae173fef1416b6b0f9c8d40d" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">09.10.2022</DIV>
+	<DIV class="column__venue">DesMoines (IA)</DIV>
+	<DIV class="column__name">Gas Lamp</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://tickets.midwestix.com/event/kaelan-mikla-kanga" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">08.10.2022</DIV>
+	<DIV class="column__venue">Minneapolis (MN)</DIV>
+	<DIV class="column__name">Icehouse</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">06.10.2022</DIV>
+	<DIV class="column__venue">Madison (WI)</DIV>
+	<DIV class="column__name">Crucible</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://bpt.me/5500452" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">05.10.2022</DIV>
+	<DIV class="column__venue">Chicago (IL)</DIV>
+	<DIV class="column__name">Chop Shop</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://link.dice.fm/M63646a0c225" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">04.10.2022</DIV>
+	<DIV class="column__venue">Detroit (MI)</DIV>
+	<DIV class="column__name">Small's</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.eventbrite.com/e/kaelan-mikla-kanga-tickets-375243372027" target="_blank">Tickets</A><BR><BR></DIV>	
+</DIV>
+	
+	
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+	
+	
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">03.09.2022</DIV>
+	<DIV class="column__venue"> Gothenburg (SE)</DIV>
+	<DIV class="column__name">Gothenburg Culture Festival</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">27.08.2022</DIV>
+	<DIV class="column__venue">rague (CZ)</DIV>
+	<DIV class="column__name">Prague Gothic Treffen</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://goout.net/en/tickets/xvii-prague-gothic-treffen/lfvj/" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.08.2022</DIV>
+	<DIV class="column__venue">Leira (PT)</DIV>
+	<DIV class="column__name">Entremuralhas</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://www.letsgo.pt/pt/evento/extramuralhas-kaelan-mikla-2608-301/" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">24.08.2022</DIV>
+	<DIV class="column__venue">Berlin (DE)</DIV>
+	<DIV class="column__name">Pop Kultur</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://tickets.pop-kultur.berlin/produkte" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">20.08.2022</DIV>
+	<DIV class="column__venue">Borre (NO)</DIV>
+	<DIV class="column__name">Midgardsblot</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://midgardsblot.hoopla.no/sales/event/1452569729" target="_blank">Tickets</A></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">18.08.2022 [19.08] 00:50</DIV>
+	<DIV class="column__venue">Sástó (HU)</DIV>
+	<DIV class="column__name">Fekete Zaj</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><A href="https://tixa.hu/feketezaj2022" target="_blank">Tickets</A><BR><BR></DIV>
+</DIV>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">31.07.2022 23:25</DIV>
+	<DIV class="column__venue">Alberta (CA)</DIV>
+    <DIV class="column__name"><A href="https://terminus-festival.com/" target="_blank">Terminus Festival</A></DIV>			
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">27.07.2022 (19:00)</DIV>
+	<DIV class="column__venue">Reykjavík (IS)</DIV>
+    <DIV class="column__name"><A href="https://gaukurinn.is/" target="_blank">Gaukurinn</A></DIV>			
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/Gaukurinn/@64.1487194,-21.9427739,17z/data=!3m1!4b1!4m6!3m5!1s0x48d60b2d21c3d663:0x6a770ada2781ba85!8m2!3d64.1487171!4d-21.940199!16s%2Fg%2F11b807tgjq?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+	<DIV class="column__additional_information">2'000 ISK<BR><BR></DIV>
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">10.07.2022 17:00 (14:00)</DIV>
+	<DIV class="column__venue">Bolków (PL)</DIV>
+	<DIV class="column__name"><A href="https://castleparty.com/" target="_blank">Castle Party</A></DIV>	
+	<DIV class="column__map"><A href="https://www.google.pl/maps/place/50%C2%B055'16.8%22N+16%C2%B005'51.6%22E/@50.9213348,16.0970203,19z/data=!3m1!4b1!4m4!3m3!8m2!3d50.921334!4d16.097664?entry=ttu" target="_blank">Map</A></DIV>
+	<DIV class="column__tickets"><A href="https://castleparty.com/bilety.html" target="_blank" target="_blank">Tickets</A><BR><BR></DIV>	
+</DIV>
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">17.06.2022 21:00</DIV>
+	<DIV class="column__venue">Hague (NL)</DIV>
+    <DIV class="column__name"><A href="https://linktr.ee/Grauzonefestival" target="_blank">Grauzone festival</A></DIV>			
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
+</DIV>
+
+
+<!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
+
+
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.05.2022</DIV>
+	<DIV class="column__venue">Leipzig (DE)</DIV>
+	<DIV class="column__name">Moritzbastei</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.05.2022</DIV>
+	<DIV class="column__venue">Mannheim (DE)</DIV>
+	<DIV class="column__name">MS Connexion</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">13.05.2022</DIV>
+	<DIV class="column__venue">Bochum (DE)</DIV>
+	<DIV class="column__name">Die Trompete</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">12.05.2022</DIV>
+	<DIV class="column__venue">Hannover (DE)</DIV>
+	<DIV class="column__name">Cafe Glocksee</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">11.05.2022</DIV>
+	<DIV class="column__venue">Wrocław (PL)</DIV>
+	<DIV class="column__name">Akademia</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">10.05.2022</DIV>
+	<DIV class="column__venue">Gdańsk (PL)</DIV>
+	<DIV class="column__name">Ziemia Club</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">09.05.2022</DIV>
+	<DIV class="column__venue">Kraków (PL)</DIV>
+	<DIV class="column__name">HOL</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">08.05.2022</DIV>
+	<DIV class="column__venue">Warszawa (PL)</DIV>
+	<DIV class="column__name">Pogłos</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">07.05.2022</DIV>
+	<DIV class="column__venue">Vilnius (AT)</DIV>
+	<DIV class="column__name">Kablys Club</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">06.05.2022</DIV>
+	<DIV class="column__venue">Riga (LV)</DIV>
+	<DIV class="column__name">Melna Piektdiena</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">05.05.2022</DIV>
+	<DIV class="column__venue">Tallinn (EE)</DIV>
+	<DIV class="column__name">Sveta Baar</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">04.05.2022</DIV>
+	<DIV class="column__venue">Tampere (FI)</DIV>
+	<DIV class="column__name">Klubi</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">03.05.2022</DIV>
+	<DIV class="column__venue">Helsinki (FI)</DIV>
+	<DIV class="column__name">On The Rocks</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">01.05.2022</DIV>
+	<DIV class="column__venue">Umeå (SE)</DIV>
+	<DIV class="column__name">Droskan</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">30.04.2022</DIV>
+	<DIV class="column__venue">Stockholm (SE)</DIV>
+	<DIV class="column__name">HUS7</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">29.04.2022</DIV>
+	<DIV class="column__venue">Oslo (NO)</DIV>
+	<DIV class="column__name">Blå</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">28.04.2022</DIV>
+	<DIV class="column__venue">Jonkoping (SE)</DIV>
+	<DIV class="column__name">The Hush Hush Club</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">27.04.2022</DIV>
+	<DIV class="column__venue">Malmö (SE)</DIV>
+	<DIV class="column__name">Plan B</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">26.04.2022</DIV>
+	<DIV class="column__venue">Kobenhavn (DK)</DIV>
+	<DIV class="column__name">Stengade</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">24.04.2022</DIV>
+	<DIV class="column__venue">Nürnberg (DE)</DIV>
+	<DIV class="column__name">Desi</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">23.04.2022</DIV>
+	<DIV class="column__venue">Tilburg (NL)</DIV>
+	<DIV class="column__name">Roadburn Festival</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">20.04.2022</DIV>
+	<DIV class="column__venue">Tourcoing (FR)</DIV>
+	<DIV class="column__name">Le Grand Mix</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">19.04.2022</DIV>
+	<DIV class="column__venue">Nantes (FR)</DIV>
+	<DIV class="column__name">Le Ferrailleur</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">18.04.2022</DIV>
+	<DIV class="column__venue">Paris (FR)</DIV>
+	<DIV class="column__name">Petit Bain</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">17.04.2022</DIV>
+	<DIV class="column__venue">Luxembourg (LU)</DIV>
+	<DIV class="column__name">Rotondes</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">16.04.2022</DIV>
+	<DIV class="column__venue">Lucerne (CH)</DIV>
+	<DIV class="column__name">Sedel</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">15.04.2022</DIV>
+	<DIV class="column__venue">Strasbourg (FR)</DIV>
+	<DIV class="column__name">La Laiterie</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">14.04.2022</DIV>
+	<DIV class="column__venue">München (DE)</DIV>
+	<DIV class="column__name">Rote Sonne</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+<DIV class="Event_Date">&nbsp;
+	<DIV class="column__date">13.04.2022</DIV>
+	<DIV class="column__venue">Berlin (DE)</DIV>
+	<DIV class="column__name">Urban Spree</DIV>
+	<DIV class="column__map"><S><A>Map?</A></S></DIV>
+	<DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
+</DIV>
+
+<P id="Event_Date__Count" style="font-size:75%;">Count: &lt?&gt;.</P>
+
+</BODY>
+</HTML>
