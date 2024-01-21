@@ -12,16 +12,29 @@
 function Dates_Check()
 {
 
-  function Date_To_String( date_f )
+  function Event_Date_Group__Processing( event_date_f, year_last_f, event_date_item_f )
   {
 
-    const date_l = new Date( date_f );
+    if ( year_last_f != event_date_f.getFullYear() )
+      {
 
-    let day_l_l = date_l.getDate();
-    let month_l_l = date_l.getMonth() + 1;
-    let year_l_l = date_l.getFullYear();
+        year_last_f = event_date_f.getFullYear();
 
-    return day_l_l + "." + month_l_l + "." + year_l_l;
+        event_date_item_f.outerHTML = '<DIV class="Event_Date_Group"><BR><tabulator_01>' + year_last_f + '</DIV>' + event_date_item_f.outerHTML;
+
+      }
+
+    return year_last_f;
+
+  }
+
+  function Events_Count__Processing( events_count_f, event_date_item_f )
+  {
+
+    if (  event_date_item_f.getElementsByClassName( 'column__group_header' ).length <= 0  )
+      return ++events_count_f
+    else
+      return events_count_f;
 
   }
 
@@ -34,8 +47,6 @@ function Dates_Check()
         return new Date( 0 );
 
       }
-
-    text_f = text_f.substr(  text_f.indexOf( '>' ) + 1, 10  );
 
     if ( text_f.length < 10 )
       return Date.now();
@@ -50,13 +61,15 @@ function Dates_Check()
 
 
 
+  const day_of_week_names_t = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
+
   let archive_date_l = new Date();
   let event_date_l = new Date();
   let events_count_l = 0;
   let now_date_l = new Date();
   now_date_l = now_date_l.setDate( now_date_l.getDate() - 1 );
   let year_last_l = 0;
-  let zts = '';
+  let zti = 0;
 
   //archive_date_l.setFullYear( archive_date_l.getFullYear() - 1 );
   archive_date_l = archive_date_l.setDate( archive_date_l.getDate() - 183 );
@@ -67,69 +80,80 @@ function Dates_Check()
   for( var i in event_date_collection )
     {
 
-      zts = event_date_collection[ i ].innerHTML;
-
-      if ( zts == undefined )
-        zts = '';
-
-
-      event_date_l = new Date(  String_To_Date_Ex( zts )  );
-
-      if ( event_date_l < now_date_l )
+      if  (
+               (  event_date_collection[ i ] != undefined  )
+            && (  event_date_collection[ i ].innerHTML != undefined  )
+            && (  event_date_collection[ i ].getElementsByClassName( "column__date" ) != undefined  )
+            && (  event_date_collection[ i ].getElementsByClassName( "column__date" ).length > 0  )
+            && (  event_date_collection[ i ].getElementsByClassName( "column__date" )[ 0 ] != undefined  )
+          )
         {
 
-          event_date_collection[ i ].style.color = "silver";
+          event_date_l = new Date(  String_To_Date_Ex( event_date_collection[ i ].getElementsByClassName( "column__date" )[ 0 ].innerHTML )  );
 
-          if  (
-                   (  event_date_l <= new Date( 0 )  )
-                || (
-                        ( event_date_l < archive_date_l )
-                     && ( document.getElementById( "Archive_CheckBox" ) != null )
-                     && (  !( document.getElementById( "Archive_CheckBox" ).checked )  )
-                   )
-              )
+          if (  !isNaN( event_date_l )  )
             {
 
-              event_date_collection[ i ].style.visibility = "hidden";
-              event_date_collection[ i ].style.fontSize = "0%";
-
-            }
-          else
-            {
-
-              if (  zts.indexOf( 'column__group_header' ) < 0  )
-                events_count_l++;
-
-
-              event_date_collection[ i ].style.visibility = "visible";
-              event_date_collection[ i ].style.fontSize = "100%";
-
-
-              if ( year_last_l != event_date_l.getFullYear() )
+              if ( event_date_l < now_date_l )
                 {
 
-                  year_last_l = event_date_l.getFullYear();
+                  event_date_collection[ i ].style.color = "silver";
 
-                  event_date_collection[ i ].outerHTML = '<DIV class="Event_Date_Group"><BR><tabulator_01>' + year_last_l + '</DIV>' + event_date_collection[ i ].outerHTML;
+
+                  if  (
+                           (  event_date_l <= new Date( 0 )  )
+                        || (
+                                ( event_date_l < archive_date_l )
+                             && ( document.getElementById( "Archive_CheckBox" ) != null )
+                             && (  !( document.getElementById( "Archive_CheckBox" ).checked )  )
+                           )
+                      )
+                    {
+
+                      event_date_collection[ i ].style.visibility = "hidden";
+                      event_date_collection[ i ].style.fontSize = "0%";
+
+                    }
+                  else
+                    {
+
+                      events_count_l = Events_Count__Processing( events_count_l, event_date_collection[ i ] );
+
+                      year_last_l = Event_Date_Group__Processing( event_date_l, year_last_l, event_date_collection[ i ] );
+
+
+                      event_date_collection[ i ].style.visibility = "visible";
+                      event_date_collection[ i ].style.fontSize = "100%";
+
+                    }
+
+                }
+              else
+                {
+
+                  events_count_l = Events_Count__Processing( events_count_l, event_date_collection[ i ] );
+
+                  year_last_l = Event_Date_Group__Processing( event_date_l, year_last_l, event_date_collection[ i ] );
 
                 }
 
-            }
 
-        }
-      else
-        {
+              if (  event_date_l > new Date( 0 )  )
+                {
 
-          if (  zts.indexOf( 'column__group_header' ) < 0  )
-            events_count_l++;
+                  zti = event_date_l.getDay();
 
+                  const element__column__date = event_date_collection[ i ].getElementsByClassName( "column__date" )[ 0 ];
 
-          if ( year_last_l != event_date_l.getFullYear() )
-            {
+                  if  (
+                           ( zti >= 0 )
+                        && ( zti <= 6 )
+                      )
+                    element__column__date.title = day_of_week_names_t[ zti ]
+                  else
+                    element__column__date.title = event_date_l;
 
-              year_last_l = event_date_l.getFullYear();
-
-              event_date_collection[ i ].outerHTML = '<DIV class="Event_Date_Group"><BR><tabulator_01>' + year_last_l + '</DIV>' + event_date_collection[ i ].outerHTML;
+                }
 
             }
 
@@ -185,7 +209,7 @@ tabulator_01
 
 .column__additional_information { float: left; width: 250px; }
 .column__date { float: left; width: 200px; }
-.column__group_header { float: left; width: 100%; margin-left: 10%; }
+.column__group_header { float: left; width: 100%; margin-left: 130px; }
 .column__name { float: left; width: 300px; }
 .column__map { float: left; width: 75px; }
 .column__tickets { float: left; width: 75px; }
@@ -219,7 +243,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 
 
 <DIV class="Event_Date">&nbsp;
-  <DIV class="column__date">27.06.2024</DIV>
+  <DIV class="column__date" hidden>27.06.2024</DIV>
   <DIV class="column__group_header"><B>Chelsea Wolf European Tour With Kælan Mikla</B></DIV>
 </DIV>
 <DIV class="Event_Date">&nbsp;
@@ -468,7 +492,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 
 
 <DIV class="Event_Date">&nbsp;
-  <DIV class="column__date">15.03.2023</DIV>
+  <DIV class="column__date" hidden>15.03.2023</DIV>
   <DIV class="column__group_header"><B>VV / Neon Noir Tour 2023</B></DIV>
 </DIV>
 <DIV class="Event_Date">&nbsp;
@@ -679,7 +703,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 
 
 <DIV class="Event_Date">&nbsp;
-  <DIV class="column__date">05.11.2022</DIV>
+  <DIV class="column__date" hidden>05.11.2022</DIV>
   <DIV class="column__group_header"><B>Undir Köldum Norðurljósum Tour 2022 With KANGA</B></DIV>
 </DIV>
 <DIV class="Event_Date">&nbsp;
@@ -899,7 +923,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 </DIV>
 <DIV class="Event_Date">&nbsp;
   <DIV class="column__date">27.08.2022</DIV>
-  <DIV class="column__venue">rague (CZ)</DIV>
+  <DIV class="column__venue">Prague (CZ)</DIV>
   <DIV class="column__name">Prague Gothic Treffen</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://goout.net/en/tickets/xvii-prague-gothic-treffen/lfvj/" target="_blank">Tickets</A></DIV>
