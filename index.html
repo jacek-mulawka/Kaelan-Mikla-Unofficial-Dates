@@ -166,6 +166,20 @@ function Dates_Check()
 
 }
 
+function Event_Date__Mouse__Enter( sender_f )
+{
+
+  let nodes = document.getElementsByClassName( "Event_Date" )
+    
+  for ( let i = 0; i < nodes.length; i++ ) // Works better than 'on mouse out'.
+    nodes[ i ].style.fontWeight = "normal";
+      
+
+  if ( sender_f != undefined )
+    sender_f.style.fontWeight = "bold";
+
+}
+
 </SCRIPT>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -246,126 +260,126 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__date" hidden>27.06.2024</DIV>
   <DIV class="column__group_header"><B>Chelsea Wolf European Tour With Kælan Mikla</B></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.06.2024 (19:00)</DIV>
   <DIV class="column__venue">Brussels (BE)</DIV>
   <DIV class="column__name"><A href="https://www.abconcerts.be/en/" target="_blank">AB Ballroom</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Ancienne+Belgique/@50.8472443,4.34626,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c478637e0603:0x5b8708526b74dab1!8m2!3d50.8472409!4d4.3488349!16zL20vMGNmd3N6?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.abconcerts.be/en/agenda/chelsea-wolfe/a10Qw000000ToJBIA0" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.06.2024 20:00</DIV>
   <DIV class="column__venue">Munich (DE)</DIV>
   <DIV class="column__name"><A href="https://www.eventfabrik-muenchen.de/" target="_blank">Technikum</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/Technikum/@48.1234532,11.6066841,17z/data=!3m1!4b1!4m6!3m5!1s0x479ddfbeb32449ed:0x84bb419b9ecfc1f!8m2!3d48.1234532!4d11.6066841!16s%2Fg%2F11gjwgnvpf?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.eventim.de/event/chelsea-wolfe-technikum-18149747/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">25.06.2024 (19:00)</DIV>
   <DIV class="column__venue">Vienna (AT)</DIV>
   <DIV class="column__name"><A href="https://arena.wien/" target="_blank">Arena Wien</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/arena+wien+-+verein+forum/@48.1871901,16.4102966,17z/data=!3m1!4b1!4m6!3m5!1s0x476d075721916e6b:0x66165f33ef1886e4!8m2!3d48.1871866!4d16.4128715!16s%2Fg%2F122h5537?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.eventim.de/event/chelsea-wolfe-arena-wien-18148259/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">23.06.2024 20:00</DIV>
   <DIV class="column__venue">Prague (CZ)</DIV>
   <DIV class="column__name"><A href="http://www.meetfactory.cz/cs/" target="_blank">MeetFactory</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/MeetFactory/@50.0532585,14.4081552,17z/data=!3m1!4b1!4m6!3m5!1s0x470b9440f983eb57:0x4d27afd3ca133df5!8m2!3d50.0532585!4d14.4081552!16s%2Fg%2F11x7vg7d2?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="http://www.meetfactory.cz/en/objednavka-listku/2464" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">22.06.2024 20:00</DIV>
   <DIV class="column__venue">Hamburg (DE)</DIV>
   <DIV class="column__name"><A href="https://www.gruenspan.de/" target="_blank">Gruenspan</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/search/?api=1&query=Gruenspan%2C+Gro%C3%9Fe+Freiheit+58%2C+22767+Hamburg%2C+Deutschland" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.eventim.de/event/chelsea-wolfe-gruenspan-18148358/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">20.06.2024 19:00</DIV>
   <DIV class="column__venue">Gothenburg (SE)</DIV>
   <DIV class="column__name"><A href="https://pustervik.nu/" target="_blank">Pustervik</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Pustervik/@57.7005474,11.951701,17z/data=!3m1!4b1!4m6!3m5!1s0x464ff369d87b3a99:0xa92d54a4c7aedd05!8m2!3d57.7005446!4d11.9542759!16s%2Fg%2F1hc2x6p9l?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.tickster.com/en/events/z214fgzmx4dft0g/2024-06-20/chelsea-wolfe" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">18.06.2024 20:00</DIV>
   <DIV class="column__venue">Stavanger (NO)</DIV>
   <DIV class="column__name"><A href="https://www.folken.no/folken/shows/15493-chelsea-wolfe/" target="_blank">Folken</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/58%C2%B058'03.4%22N+5%C2%B043'40.8%22E/@58.9676,5.7254151,17z/data=!3m1!4b1!4m4!3m3!8m2!3d58.9676!4d5.72799?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.linticket.no/page/en/1/-/15493" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.06.2024 19:30</DIV>
   <DIV class="column__venue">Bergen (NO)</DIV>
   <DIV class="column__name"><A href="https://usf.no/" target="_blank">USF</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/USF/@60.395814,5.3044946,17z/data=!3m2!4b1!5s0x463cfc1ace436c13:0x8cfbc6d87e6d47d7!4m6!3m5!1s0x463cfc1abed6e4a9:0x8631ee6a63fdad87!8m2!3d60.3958114!4d5.3093655!16s%2Fg%2F120yrsrg?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.ticketmaster.no/event/chelsea-wolfe--support-kaelan-mikla-billetter/735123?language=en-us" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">16.06.2024 19:00</DIV>
   <DIV class="column__venue">Oslo (NO)</DIV>
   <DIV class="column__name"><A href="https://www.rockefeller.no/" target="_blank">Rockefeller Music Hall</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Rockefeller+Music+Hall/@59.9162277,10.7477194,17z/data=!3m1!4b1!4m6!3m5!1s0x46416e63c6a40423:0xd0089947f3a85ff0!8m2!3d59.916225!4d10.7502943!16s%2Fm%2F02x58c_?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.ticketmaster.no/event/735741" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.06.2024 21:00 (20:00)</DIV>
   <DIV class="column__venue">Stockholm (SE)</DIV>
   <DIV class="column__name"><A href="https://slakthusen.se/" target="_blank">Slaktkyrkan</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Slaktkyrkan/@59.2925929,18.0776807,17z/data=!3m1!4b1!4m6!3m5!1s0x465f7826f32c4753:0x6c0268ec741146a0!8m2!3d59.2925902!4d18.0802556!16s%2Fg%2F11f3p0bqm9?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://billetto.se/e/chelsea-wolfe-slaktkyrkan-biljetter-928909" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">12.06.2024 19:00</DIV>
   <DIV class="column__venue">Tallinn (EE)</DIV>
   <DIV class="column__name"><A href="https://kultuurivabrik.ee/" target="_blank">Paavli Kultuurivabrik</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Paavli+Kultuurivabrik/@59.4475901,24.702396,17z/data=!3m1!4b1!4m6!3m5!1s0x469293c9de09268f:0xda8a4a0865687e41!8m2!3d59.4475874!4d24.7049709!16s%2Fg%2F11kjk5jg2s?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://fienta.com/et/chelsea-wolfe-tallinn" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">11.06.2024 19:00 (18:00)</DIV>
   <DIV class="column__venue">Riga (LV)</DIV>
   <DIV class="column__name">Tu jau zini Kur.</DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/Tu+jau+zini+Kur./@56.96401,24.134491,18z/data=!4m6!3m5!1s0x46eecfca353b1e9b:0x4e9d4d1e27843aaf!8m2!3d56.9640057!4d24.1345097!16s%2Fg%2F11gjm6_1hq?hl=pl&entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://ticketshop.lv/en/events/5797" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">10.06.2024 20:00</DIV>
   <DIV class="column__venue">Vilnius (LT)</DIV>
   <DIV class="column__name"><A href="https://www.compensakoncertusale.lt/" target="_blank">Compensa Concert​ Hall</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Compensa+Concert%E2%80%8B+Hall/@54.7117521,25.2741082,17z/data=!3m1!4b1!4m6!3m5!1s0x46dd91660f80803f:0x4fedc03f2424da03!8m2!3d54.711749!4d25.2766831!16s%2Fg%2F11bwf2qyhh?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://tickets.paysera.com/lt/event/chelsea-wolfe-us-kaelan-mikla-is-kablys-06-10" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">07.06.2024 20:00</DIV>
   <DIV class="column__venue">Berlin (DE)</DIV>
   <DIV class="column__name"><A href="https://www.astra-berlin.de/" target="_blank"> ASTRA Kulturhaus</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/place/Astra+Kulturhaus/@52.5077001,13.4519445,17z/data=!3m1!4b1!4m6!3m5!1s0x47a84e5a48d250f1:0x1e9c5c9268b3da62!8m2!3d52.5077001!4d13.4519445!16s%2Fm%2F0lbszcj?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.eventim.de/event/chelsea-wolfe-astra-kulturhaus-18171433/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">06.06.2024 20:00</DIV>
   <DIV class="column__venue"> Köln (DE)</DIV>
   <DIV class="column__name"><A href="https://kantine.com/orte/yard-club/" target="_blank">Yard Club / Die Kantine</A></DIV>
   <DIV class="column__map"><A href="https://www.google.com/maps/search/?api=1&query=Yard+Club+%2F+Die+Kantine%2C+Neusser+Landstr.+2%2C+50735+K%C3%B6ln%2C+Deutschland" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://www.eventim.de/event/chelsea-wolfe-yard-club-die-kantine-18148437/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.06.2024 19:30</DIV>
   <DIV class="column__venue">Paris (FR)</DIV>
   <DIV class="column__name"><A href="https://www.elyseemontmartre.com/en/" target="_blank">Élysée Montmartre</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/%C3%89lys%C3%A9e+Montmartre/@48.8830382,2.341062,17z/data=!3m1!4b1!4m6!3m5!1s0x47e66e43b49a979d:0x420ef63950573a7e!8m2!3d48.8830347!4d2.3436369!16zL20vMGJmMV9x?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://billetterie.seetickets.fr/chelsea-wolfe-kaelan-mikla-concert-elysee-montmartre-paris-04-juin-2024-css5-vedettes-pg101-ri10226983.html" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">30.05.2024 20:30</DIV>
   <DIV class="column__venue">Biarritz (FR)</DIV>
   <DIV class="column__name"><A href="https://www.atabal-biarritz.fr/" target="_blank">Atabal Biarritz</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Atabal+Biarritz/@43.4604791,-1.5423835,17z/data=!3m1!4b1!4m6!3m5!1s0xd51154716072b49:0xd7b155b69e3ff8f0!8m2!3d43.4604752!4d-1.5398086!16s%2Fg%2F1tf3q6k4?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><A href="https://my.weezevent.com/chelsea-wolfe-atabal-biarritz-concert" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">29.05.2024 19:30</DIV>
   <DIV class="column__venue">Villeurbanne (FR)</DIV>
   <DIV class="column__name"><A href="https://www.transbordeur.fr/accueil/" target="_blank">Le Transbordeur</A></DIV>
@@ -377,7 +391,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 <!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
 
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">22.12.2023 [23.12] 00:15 (20:00)</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://www.midix.is/en/andkristni-gaukur-2023/eid/164" target="_blank">Andkristni</A></DIV>
@@ -386,7 +400,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">4'666 ISK<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">08.09.2023 19:00 (12:00)</DIV>
   <DIV class="column__venue">Aleksandrów Łódzki (PL)</DIV>
   <DIV class="column__name"><A href="https://summerdyingloud.pl/" target="_blank">Summer Dying Loud</A></DIV>
@@ -395,7 +409,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">159 - 309, parking 40 PLN<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">01.09.2023</DIV>
   <DIV class="column__venue">New York (NY)</DIV>
   <DIV class="column__name"><A href="https://www.redpartynyc.com/amoc" target="_blank">A Murder Of Crows Festival</A></DIV>
@@ -404,7 +418,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">35 - 85 USD<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.08.2023 22:00</DIV>
   <DIV class="column__venue">Vevey (CH)</DIV>
   <DIV class="column__name"><A href="https://www.noxorae.ch/  " target="_blank">Nox Orae festival</A></DIV>
@@ -413,7 +427,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">49 - 140 + taxes CHF<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.08.2023 23:00</DIV>
   <DIV class="column__venue">Laugarbakki (IS)</DIV>
   <DIV class="column__name"><A href="https://linktr.ee/nordanpaunk  " target="_blank">Norðanpaunk</A></DIV>
@@ -421,14 +435,14 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets"><A href="https://www.nordanpaunk.org/tickets.html" target="_blank">Tickets</A></DIV>
   <DIV class="column__additional_information">11'900 ISK (77,70 EUR)<BR><BR></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">03.08.2023 21:00</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://tix.is/is/event/15794/rokkhati-a-lemmy-2023/" target="_blank">Lemmy</A></DIV>
   <DIV class="column__map"><A href="https://www.google.pl/maps/place/Austurstr%C3%A6ti+20,+101+Reykjav%C3%ADk,+Islandia/@64.1473008,-21.9403302,17z/data=!3m1!4b1!4m6!3m5!1s0x48d60b2d437f8255:0x95a9167ffb80e9f4!8m2!3d64.1472985!4d-21.9377553!16s%2Fg%2F11b8vctffz?entry=ttu" target="_blank">Map</A></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">29.07.2023 [30.07] 01:15 </DIV>
   <DIV class="column__venue">Akureyri (IS)</DIV>
   <DIV class="column__name"><A href="https://mbsskifur.is/" target="_blank">Mannfólkið breytist í slím</A></DIV>
@@ -436,7 +450,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets">No tickets</DIV>
   <DIV class="column__additional_information">Pay what you can or want!<BR><BR></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.07.2023</DIV>
   <DIV class="column__venue">Seyðisfjörður (IS)</DIV>
   <DIV class="column__name"><A href="https://www.lunga.is/" target="_blank">LungA</A></DIV>
@@ -444,7 +458,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets"><A href="https://tix.is/en/event/15292/lunga-bliss/" target="_blank">Tickets</A></DIV>
   <DIV class="column__additional_information">15'900 ISK<BR><BR></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">08.07.2023</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://www.kexhostel.is/gym-and-tonic" target="_blank">KEX Port</A></DIV>
@@ -452,7 +466,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets"><B>Free</B><BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">16.06.2023</DIV>
   <DIV class="column__venue">Cluj-Napoca (RO)</DIV>
   <DIV class="column__name"><A href="https://tiff.ro/" target="_blank">Transilvania International Film Festival</A></DIV>
@@ -461,7 +475,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">The Phantom Carriage<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.05.2023 20:40 - 21:40</DIV>
   <DIV class="column__venue">Leipzig (DE)</DIV>
   <DIV class="column__name"><A href="https://www.wave-gotik-treffen.de/" target="_blank">Wave Gotik Treffen</A></DIV>
@@ -470,7 +484,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">Stadtbad. 170 - 190 EUR<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">21.05.2023 22:45 (17:00)</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://www.ascensionfestivaliceland.com/" target="_blank">Ascension Festival Iceland</A></DIV>
@@ -479,7 +493,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">8'900 - 24'900 ISK (65 - 210 EUR)<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.04.2023</DIV>
   <DIV class="column__venue">San Francisco (CA)</DIV>
   <DIV class="column__name">The Fillmore</DIV>
@@ -495,189 +509,189 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__date" hidden>15.03.2023</DIV>
   <DIV class="column__group_header"><B>VV / Neon Noir Tour 2023</B></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.03.2023</DIV>
   <DIV class="column__venue">London (UK)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.03.2023</DIV>
   <DIV class="column__venue">Manchester (UK)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">13.03.2023</DIV>
   <DIV class="column__venue">Glasgow (UK)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">11.03.2023</DIV>
   <DIV class="column__venue">Nottingham (UK)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">10.03.2023</DIV>
   <DIV class="column__venue">Bristol (UK)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">09.03.2023</DIV>
   <DIV class="column__venue">Paris (FR)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">08.03.2023</DIV>
   <DIV class="column__venue">Cologne (DE)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">07.03.2023</DIV>
   <DIV class="column__venue">Esch-sur-Alzette (LU)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">05.03.2023</DIV>
   <DIV class="column__venue">Vienna (AT)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.03.2023</DIV>
   <DIV class="column__venue">Budapest (HU)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">03.03.2023</DIV>
   <DIV class="column__venue">Munich (DE)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.02.2023</DIV>
   <DIV class="column__venue">Porto (PT)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.02.2023</DIV>
   <DIV class="column__venue">Lisbon (PT)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">25.02.2023</DIV>
   <DIV class="column__venue">Madrid (ES)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">24.02.2023</DIV>
   <DIV class="column__venue">Barcelona (ES)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">22.02.2023</DIV>
   <DIV class="column__venue">Zurich (CH)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">21.02.2023</DIV>
   <DIV class="column__venue">Frankfurt (DE)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">20.02.2023</DIV>
   <DIV class="column__venue">Amsterdam (NL)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">18.02.2023</DIV>
   <DIV class="column__venue">Hamburg (DE)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.02.2023</DIV>
   <DIV class="column__venue">Berlin (DE)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">16.02.2023</DIV>
   <DIV class="column__venue">Prague (CZ)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.02.2023</DIV>
   <DIV class="column__venue">Krakow (PL)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.02.2023</DIV>
   <DIV class="column__venue">Warsaw (PL)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">11.02.2023</DIV>
   <DIV class="column__venue">Hague (NL)</DIV>
   <DIV class="column__name">grauzone_festival</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.01.2023</DIV>
   <DIV class="column__venue">Helsinki (FI)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.01.2023</DIV>
   <DIV class="column__venue">Helsinki (FI)</DIV>
   <DIV class="column__name"><S><A>Venue?</A></S></DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">13.01.2023</DIV>
   <DIV class="column__venue">Helsinki (FI)</DIV>
   <DIV class="column__name"><A href="https://tavastiaklubi.fi/" target="_blank">TAVASTIA-klubi</A></DIV>
@@ -689,7 +703,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 <!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
 
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">30.12.2022 (20:00)</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://gaukurinn.is/" target="_blank">Gaukurinn</A></DIV>
@@ -706,203 +720,203 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__date" hidden>05.11.2022</DIV>
   <DIV class="column__group_header"><B>Undir Köldum Norðurljósum Tour 2022 With KANGA</B></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">05.11.2022</DIV>
   <DIV class="column__venue">Atlanta (GA)</DIV>
   <DIV class="column__name">529</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://529kaelanmikla.eventbrite.com/" target="_blank" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.11.2022</DIV>
   <DIV class="column__venue">Tampa (FL)</DIV>
   <DIV class="column__name">New World Brewery</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://kaelantampa.eventbrite.com/" target="_blank" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">03.11.2022</DIV>
   <DIV class="column__venue">NewYork (NY)</DIV>
   <DIV class="column__name">Le Poisson Rouge</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://link.dice.fm/Q71ce7c14804" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">02.11.2022</DIV>
   <DIV class="column__venue">Baltimore (MD)</DIV>
   <DIV class="column__name">Metro Gallery</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.etix.com/ticket/p/5131327/kaelan-miklawith-special-guests-kanga-baltimore-metro-baltimore" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">01.11.2022</DIV>
   <DIV class="column__venue">Philadelphia (PA)</DIV>
   <DIV class="column__name">Johnny Brenda's</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">31.10.2022</DIV>
   <DIV class="column__venue">Boston (MA)</DIV>
   <DIV class="column__name">The Middle East Upstairs</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">30.10.2022</DIV>
   <DIV class="column__venue">Montreal (QC)</DIV>
   <DIV class="column__name">Bar Ritz</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="http://blueskiesturnblack.com/show/2783" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">29.10.2022</DIV>
   <DIV class="column__venue">Toronto (ON)</DIV>
   <DIV class="column__name">Vashe Zdorov'ye</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://bit.ly/K%C3%A6lanTORQ" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.10.2022</DIV>
   <DIV class="column__venue">Vancouver (BC)</DIV>
   <DIV class="column__name">Rick Shaw</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://kaelan-mikla-vancouver.eventbrite.ca/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.10.2022</DIV>
   <DIV class="column__venue">Seattle (WA)</DIV>
   <DIV class="column__name">Clockout Lounge</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://bit.ly/3nlzdPM" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">25.10.2022</DIV>
   <DIV class="column__venue">Portland (OR)</DIV>
   <DIV class="column__name">Star Theater</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.ticketweb.com/event/kaelan-mikla-x-kanga-star-theater-tickets/12260645?pl=star" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">23.10.2022</DIV>
   <DIV class="column__venue">Sacramento (CA)</DIV>
   <DIV class="column__name">Harlows</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.showclix.com/event/kaelan-mikla" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">22.10.2022</DIV>
   <DIV class="column__venue">SanFransico (CA)</DIV>
   <DIV class="column__name">Rickshaw Stop</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://wl.seetickets.us/event/KAELAN-MIKLA/491589?afflky=RickshawStop" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">21.10.2022</DIV>
   <DIV class="column__venue">LosAngeles (CA)</DIV>
   <DIV class="column__name">Substance Festival</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://substance2022.com/tickets" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">20.10.2022</DIV>
   <DIV class="column__venue">SanDiego (CA)</DIV>
   <DIV class="column__name">TBA</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">19.10.2022</DIV>
   <DIV class="column__venue">Phoenix (AZ)</DIV>
   <DIV class="column__name">The Scarlet Room</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.eventbrite.com/e/klan-mikla-with-kanga-tickets-375544221877?utm-campaign=social&amp;utm-content=attendeeshare&amp;utm-medium=discovery&amp;utm-term=listing&amp;utm-source=cp&amp;aff=escb" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">18.10.2022</DIV>
   <DIV class="column__venue">ElPaso (TX)</DIV>
   <DIV class="column__name">The Reagan</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.eventbrite.com/e/panic-presents-kaelan-mikla-kanga-tickets-375405446797" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.10.2022</DIV>
   <DIV class="column__venue">SanAntonio (TX)</DIV>
   <DIV class="column__name">Paper Tiger</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://wl.seetickets.us/event/Klan-Mikla/491833?afflky=PaperTiger" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">16.10.2022</DIV>
   <DIV class="column__venue">Houston (TX)</DIV>
   <DIV class="column__name">White Oak Music Hall</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://wl.seetickets.us/event/Klan-Mikla/491613?afflky=WhiteOakMusicHall" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.10.2022</DIV>
   <DIV class="column__venue">Austin (TX)</DIV>
   <DIV class="column__name">Elysium</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="http://www.secret-oktober.com/kaelanmikla/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.10.2022</DIV>
   <DIV class="column__venue">Ft.Wor (TX)</DIV>
   <DIV class="column__name">Tulips</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.prekindle.com/event/47954-kaelan-mikla-fort-worth" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">13.10.2022</DIV>
   <DIV class="column__venue">Wichita (KS)</DIV>
   <DIV class="column__name">MonikaHouse</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">12.10.2022</DIV>
   <DIV class="column__venue">KansasCity (KS)</DIV>
   <DIV class="column__name">BLVD Nights</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.ho7s.com/products/kaelan-mikla-w-kanga" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">10.10.2022</DIV>
   <DIV class="column__venue">Denver (CO)</DIV>
   <DIV class="column__name">HQ</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://holdmyticket.com/tickets-preview/6b502aa6ae173fef1416b6b0f9c8d40d" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">09.10.2022</DIV>
   <DIV class="column__venue">DesMoines (IA)</DIV>
   <DIV class="column__name">Gas Lamp</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://tickets.midwestix.com/event/kaelan-mikla-kanga" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">08.10.2022</DIV>
   <DIV class="column__venue">Minneapolis (MN)</DIV>
   <DIV class="column__name">Icehouse</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">06.10.2022</DIV>
   <DIV class="column__venue">Madison (WI)</DIV>
   <DIV class="column__name">Crucible</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://bpt.me/5500452" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">05.10.2022</DIV>
   <DIV class="column__venue">Chicago (IL)</DIV>
   <DIV class="column__name">Chop Shop</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://link.dice.fm/M63646a0c225" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.10.2022</DIV>
   <DIV class="column__venue">Detroit (MI)</DIV>
   <DIV class="column__name">Small's</DIV>
@@ -914,42 +928,42 @@ Maybe the information here will be helpful to someone. Some details may be unava
 <!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
 
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">03.09.2022</DIV>
   <DIV class="column__venue"> Gothenburg (SE)</DIV>
   <DIV class="column__name">Gothenburg Culture Festival</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.08.2022</DIV>
   <DIV class="column__venue">Prague (CZ)</DIV>
   <DIV class="column__name">Prague Gothic Treffen</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://goout.net/en/tickets/xvii-prague-gothic-treffen/lfvj/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.08.2022</DIV>
   <DIV class="column__venue">Leira (PT)</DIV>
   <DIV class="column__name">Entremuralhas</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://www.letsgo.pt/pt/evento/extramuralhas-kaelan-mikla-2608-301/" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">24.08.2022</DIV>
   <DIV class="column__venue">Berlin (DE)</DIV>
   <DIV class="column__name">Pop Kultur</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://tickets.pop-kultur.berlin/produkte" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">20.08.2022</DIV>
   <DIV class="column__venue">Borre (NO)</DIV>
   <DIV class="column__name">Midgardsblot</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><A href="https://midgardsblot.hoopla.no/sales/event/1452569729" target="_blank">Tickets</A></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">18.08.2022 [19.08] 00:50</DIV>
   <DIV class="column__venue">Sástó (HU)</DIV>
   <DIV class="column__name">Fekete Zaj</DIV>
@@ -960,7 +974,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
 
 <!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">31.07.2022 23:25</DIV>
   <DIV class="column__venue">Alberta (CA)</DIV>
   <DIV class="column__name"><A href="https://terminus-festival.com/" target="_blank">Terminus Festival</A></DIV>
@@ -968,7 +982,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets"><S><A>Tickets?</A></S><BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.07.2022 (19:00)</DIV>
   <DIV class="column__venue">Reykjavík (IS)</DIV>
   <DIV class="column__name"><A href="https://gaukurinn.is/" target="_blank">Gaukurinn</A></DIV>
@@ -977,7 +991,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__additional_information">2'000 ISK<BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">10.07.2022 17:00 (14:00)</DIV>
   <DIV class="column__venue">Bolków (PL)</DIV>
   <DIV class="column__name"><A href="https://castleparty.com/" target="_blank">Castle Party</A></DIV>
@@ -985,7 +999,7 @@ Maybe the information here will be helpful to someone. Some details may be unava
   <DIV class="column__tickets"><A href="https://castleparty.com/bilety.html" target="_blank" target="_blank">Tickets</A><BR><BR></DIV>
 </DIV>
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.06.2022 21:00</DIV>
   <DIV class="column__venue">Hague (NL)</DIV>
   <DIV class="column__name"><A href="https://linktr.ee/Grauzonefestival" target="_blank">Grauzone festival</A></DIV>
@@ -997,203 +1011,203 @@ Maybe the information here will be helpful to someone. Some details may be unava
 <!-- //      ***      ***      ***      ***      ***      ***      ***      ***      ***      ***      // -->
 
 
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.05.2022</DIV>
   <DIV class="column__venue">Leipzig (DE)</DIV>
   <DIV class="column__name">Moritzbastei</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.05.2022</DIV>
   <DIV class="column__venue">Mannheim (DE)</DIV>
   <DIV class="column__name">MS Connexion</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">13.05.2022</DIV>
   <DIV class="column__venue">Bochum (DE)</DIV>
   <DIV class="column__name">Die Trompete</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">12.05.2022</DIV>
   <DIV class="column__venue">Hannover (DE)</DIV>
   <DIV class="column__name">Cafe Glocksee</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">11.05.2022</DIV>
   <DIV class="column__venue">Wrocław (PL)</DIV>
   <DIV class="column__name">Akademia</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">10.05.2022</DIV>
   <DIV class="column__venue">Gdańsk (PL)</DIV>
   <DIV class="column__name">Ziemia Club</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">09.05.2022</DIV>
   <DIV class="column__venue">Kraków (PL)</DIV>
   <DIV class="column__name">HOL</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">08.05.2022</DIV>
   <DIV class="column__venue">Warszawa (PL)</DIV>
   <DIV class="column__name">Pogłos</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">07.05.2022</DIV>
   <DIV class="column__venue">Vilnius (AT)</DIV>
   <DIV class="column__name">Kablys Club</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">06.05.2022</DIV>
   <DIV class="column__venue">Riga (LV)</DIV>
   <DIV class="column__name">Melna Piektdiena</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">05.05.2022</DIV>
   <DIV class="column__venue">Tallinn (EE)</DIV>
   <DIV class="column__name">Sveta Baar</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">04.05.2022</DIV>
   <DIV class="column__venue">Tampere (FI)</DIV>
   <DIV class="column__name">Klubi</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">03.05.2022</DIV>
   <DIV class="column__venue">Helsinki (FI)</DIV>
   <DIV class="column__name">On The Rocks</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">01.05.2022</DIV>
   <DIV class="column__venue">Umeå (SE)</DIV>
   <DIV class="column__name">Droskan</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">30.04.2022</DIV>
   <DIV class="column__venue">Stockholm (SE)</DIV>
   <DIV class="column__name">HUS7</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">29.04.2022</DIV>
   <DIV class="column__venue">Oslo (NO)</DIV>
   <DIV class="column__name">Blå</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">28.04.2022</DIV>
   <DIV class="column__venue">Jonkoping (SE)</DIV>
   <DIV class="column__name">The Hush Hush Club</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">27.04.2022</DIV>
   <DIV class="column__venue">Malmö (SE)</DIV>
   <DIV class="column__name">Plan B</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">26.04.2022</DIV>
   <DIV class="column__venue">Kobenhavn (DK)</DIV>
   <DIV class="column__name">Stengade</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">24.04.2022</DIV>
   <DIV class="column__venue">Nürnberg (DE)</DIV>
   <DIV class="column__name">Desi</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">23.04.2022</DIV>
   <DIV class="column__venue">Tilburg (NL)</DIV>
   <DIV class="column__name">Roadburn Festival</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">20.04.2022</DIV>
   <DIV class="column__venue">Tourcoing (FR)</DIV>
   <DIV class="column__name">Le Grand Mix</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">19.04.2022</DIV>
   <DIV class="column__venue">Nantes (FR)</DIV>
   <DIV class="column__name">Le Ferrailleur</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">18.04.2022</DIV>
   <DIV class="column__venue">Paris (FR)</DIV>
   <DIV class="column__name">Petit Bain</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">17.04.2022</DIV>
   <DIV class="column__venue">Luxembourg (LU)</DIV>
   <DIV class="column__name">Rotondes</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">16.04.2022</DIV>
   <DIV class="column__venue">Lucerne (CH)</DIV>
   <DIV class="column__name">Sedel</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">15.04.2022</DIV>
   <DIV class="column__venue">Strasbourg (FR)</DIV>
   <DIV class="column__name">La Laiterie</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">14.04.2022</DIV>
   <DIV class="column__venue">München (DE)</DIV>
   <DIV class="column__name">Rote Sonne</DIV>
   <DIV class="column__map"><S><A>Map?</A></S></DIV>
   <DIV class="column__tickets"><S><A>Tickets?</A></S></DIV>
 </DIV>
-<DIV class="Event_Date">&nbsp;
+<DIV class="Event_Date" onmouseenter = "Event_Date__Mouse__Enter( this )">&nbsp;
   <DIV class="column__date">13.04.2022</DIV>
   <DIV class="column__venue">Berlin (DE)</DIV>
   <DIV class="column__name">Urban Spree</DIV>
